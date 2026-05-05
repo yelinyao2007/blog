@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客 - Lynn's Lab</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0f; --card: #12121a; --primary: #00f0ff; --text: #e0e0e0; --text-dim: #666; }
+        body { font-family: 'Segoe UI', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: var(--primary); margin-bottom: 30px; font-size: 2rem; }
+        .post-list { list-style: none; }
+        .post-item { background: var(--card); border: 1px solid #222; border-radius: 8px; padding: 20px; margin-bottom: 15px; transition: all 0.3s; }
+        .post-item:hover { border-color: var(--primary); transform: translateX(5px); }
+        .post-item a { text-decoration: none; color: var(--text); display: block; }
+        .post-item h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: 8px; }
+        .post-item p { color: var(--text-dim); font-size: 0.9rem; }
+        .post-date { color: var(--text-dim); font-size: 0.8rem; margin-top: 10px; }
+        .back { color: var(--primary); text-decoration: none; margin-bottom: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back">← 返回首页</a>
+        <h1>技术博客</h1>
+        <ul class="post-list">
+            <li class="post-item">
+                <a href="harness-intro.html">
+                    <h2>一文读懂 Harness：下一代持续交付平台</h2>
+                    <p>Harness 是一个现代化的持续交付平台，帮助团队实现自动化部署、灰度发布和可观测性。</p>
+                    <div class="post-date">2026-05-05</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

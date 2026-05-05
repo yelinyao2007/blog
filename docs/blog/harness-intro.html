@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一文读懂 Harness：下一代持续交付平台 - Lynn's Lab</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0f; --card: #12121a; --primary: #00f0ff; --text: #e0e0e0; --text-dim: #888; --code: #1a1a24; }
+        body { font-family: 'Segoe UI', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .back { color: var(--primary); text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        .date { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 30px; }
+        h2 { color: var(--primary); margin: 40px 0 20px; font-size: 1.4rem; border-left: 3px solid var(--primary); padding-left: 15px; }
+        p { margin-bottom: 15px; color: var(--text); }
+        ul, ol { margin: 15px 0 15px 20px; }
+        li { margin: 8px 0; }
+        code { background: var(--code); padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; color: var(--primary); }
+        pre { background: var(--code); padding: 20px; border-radius: 8px; overflow-x: auto; margin: 20px 0; }
+        .highlight { background: var(--card); border: 1px solid #222; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
+        th { background: var(--card); color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="./" class="back">← 返回博客</a>
+        
+        <h1>一文读懂 Harness：下一代持续交付平台</h1>
+        <p class="date">2026-05-05</p>
+
+        <h2>什么是 Harness？</h2>
+        <p>Harness 是一个现代化的<strong>企业级持续交付平台</strong>，由前 Netflix 工程师 Rohit Gupta 于 2016 年创立。Harness 的核心理念是让软件交付像"拉绳子"一样简单——你只需定义"想要什么"，平台会自动完成"如何做"。</p>
+        <p>Harness 定位为「现代软件交付平台（Modern Software Delivery Platform）」，采用模块化架构，覆盖软件研发生命周期（SDLC）的全链路。</p>
+
+        <div class="highlight">
+            <p><strong>开源地址：</strong> <a href="https://github.com/harness/harness-core" style="color: var(--primary);">github.com/harness/harness-core</a></p>
+            <p><strong>开源协议：</strong> Apache 2.0</p>
+            <p><strong>GitHub Stars：</strong> 34,000+</p>
+        </div>
+
+        <h2>核心功能模块</h2>
+        <p>Harness 平台包含七大核心模块，形成完整的 DevOps 闭环：</p>
+
+        <table>
+            <tr><th>模块</th><th>功能</th></tr>
+            <tr><td>持续集成 (CI)</td><td>智能化构建、智能缓存、并行执行</td></tr>
+            <tr><td>持续交付 (CD)</td><td>金丝雀、蓝绿、滚动部署策略</td></tr>
+            <tr><td>功能标记 (Feature Flags)</td><td>渐进式发布、A/B 测试、实时开关</td></tr>
+            <tr><td>云成本管理</td><td>多云成本视图、预算告警、AI优化建议</td></tr>
+            <tr><td>安全测试</td><td>SAST、DAST、SCA 漏洞扫描</td></tr>
+            <tr><td>混沌工程</td><td>故障注入、韧性验证</td></tr>
+            <tr><td>工程洞察</td><td>DORA 指标、团队效率分析</td></tr>
+        </table>
+
+        <h2>为什么选择 Harness？</h2>
+        <p>传统 DevOps 工具链面临碎片化问题：Jenkins + GitLab CI + Spinnaker + LaunchDarkly + CloudHealth 的组合带来了高维护成本和复杂治理。Harness 提供统一平台解决这些痛点：</p>
+
+        <ul>
+            <li><strong>AI 驱动的智能交付</strong>：通过智能测试选择，仅运行受代码变更影响的测试，测试时间缩短 70%</li>
+            <li><strong>企业级部署策略</strong>：内置金丝雀、蓝绿、滚动更新，无需自定义脚本</li>
+            <li><strong>智能回滚</strong>：异常检测与自动回滚机制，异常时 30 秒内触发回滚</li>
+            <li><strong>成本可视化</strong>：多云成本统一视图，AI 驱动的优化建议</li>
+            <li><strong>零配置依赖</strong>：通过 docker-compose 一键启动，适配 Kubernetes 集群扩展</li>
+        </ul>
+
+        <h2>部署策略对比</h2>
+        <table>
+            <tr><th>策略</th><th>特点</th><th>适用场景</th></tr>
+            <tr><td>Rolling（滚动部署）</td><td>逐步替换实例</td><td>无状态服务</td></tr>
+            <tr><td>Blue-Green（蓝绿部署）</td><td>两套环境切换</td><td>高可用场景</td></tr>
+            <tr><td>Canary（金丝雀）</td><td>灰度验证，逐步扩大</td><td>关键业务</td></tr>
+        </table>
+
+        <h2>与传统工具的对比</h2>
+        <table>
+            <tr><th>维度</th><th>Jenkins</th><th>GitLab CI</th><th>Harness</th></tr>
+            <tr><td>架构理念</td><td>插件化</td><td>集成化</td><td>平台化</td></tr>
+            <tr><td>部署策略</td><td>需自定义脚本</td><td>基础策略</td><td>内置高级策略</td></tr>
+            <tr><td>智能特性</td><td>无</td><td>基础缓存</td><td>AI 驱动优化</td></tr>
+            <tr><td>学习曲线</td><td>陡峭</td><td>中等</td><td>平缓</td></tr>
+        </table>
+
+        <h2>适用场景</h2>
+        <p>Harness 特别适合以下团队：</p>
+        <ul>
+            <li>✅ 工具链太多，管理复杂</li>
+            <li>✅ 云账单持续增长，难以控制</li>
+            <li>✅ 部署流程不够灵活，容易出错</li>
+            <li>✅ 需要金丝雀等高级发布策略</li>
+            <li>✅ 希望有统一的团队效率可视化</li>
+        </ul>
+
+        <h2>总结</h2>
+        <p>Harness 是当前 DevSecOps 领域最具竞争力的平台之一，尤其在企业治理、AI 自动化和多云部署方面表现突出。对于追求研发效能的中大型团队，Harness 是值得深度评估的选择。</p>
+        <p>如果你对 Harness 感兴趣，可以访问 <a href="https://harness.io" style="color: var(--primary);">harness.io</a> 了解更多，或查看其 GitHub 开源项目。</p>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: var(--text-dim); font-size: 0.9rem;">
+            <p>Tags: DevOps · CI/CD · Harness · 持续交付</p>
+        </div>
+    </div>
+</body>
+</html>
